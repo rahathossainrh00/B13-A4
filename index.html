@@ -61,6 +61,24 @@
 
 
     </header>
+
+    <!-- job container -->
+    <section>
+        <div class="flex justify-between items-center">
+            <h1 class="font-bold text-3xl text-[#002C5C] pt-2 pb-5">Available Jobs</h1>
+            <p id="job-list-count" class="font-medium text-[#64748B]">0 jobs</p>
+        </div>
+
+        <div id="filter-button-group" class="flex gap-2 pb-4">
+            <button onclick="filterByStatus('all', this)" id="filter-all-btn"
+                class=" filter-button btn btn-soft text-[#64748B] font-semibold w-24">All</button>
+            <button onclick="filterByStatus('interview' , this)" id="filter-interview-btn"
+                class=" filter-button btn btn-soft w-24 text-[#64748B]">Interview</button>
+            <button onclick="filterByStatus('reject' , this)" id="filter-rejected-btn"
+                class=" filter-button btn btn-soft w-24 text-[#64748B]">Rejected</button>
+        </div>
+        
+    </section>
     
 </body>
 </html>
