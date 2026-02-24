@@ -54,3 +54,39 @@ function toggleCardVisibility(status) {
         jobListCounter.innerText = visibleCount + " of " + totalJobs + " jobs";
     }
 }
+
+
+function updateJobStatus(button, newStatus) {
+    var jobCard = button.closest(".job-listing-card");
+    jobCard.setAttribute("data-job-status", newStatus);
+
+    var statusBadge = jobCard.querySelector(".job-status-badge");
+
+    if (newStatus === "interview") {
+        statusBadge.innerText = "Applied";
+        statusBadge.className = "job-status-badge btn bg-[#10B981] text-white w-32";
+    }
+
+    if (newStatus === "reject") {
+        statusBadge.innerText = "Rejected";
+        statusBadge.className = "job-status-badge btn bg-[#EF4444] text-white w-32";
+    }
+
+    refreshDashboardCounts();
+
+    var activeFilterButton = document.querySelector(".filter-button.bg-\\[\\#3B82F6\\]");
+
+    if (activeFilterButton) {
+        var activeFilterName = activeFilterButton.id;
+
+        if (activeFilterName === "filter-all-btn") {
+            toggleCardVisibility("all");
+        }
+        if (activeFilterName === "filter-interview-btn") {
+            toggleCardVisibility("interview");
+        }
+        if (activeFilterName === "filter-rejected-btn") {
+            toggleCardVisibility("reject");
+        }
+    }
+}
