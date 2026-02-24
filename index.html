@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Tracker</title>
+    <title>Jobs | Home</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- tailwind and daisyUI  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
 </head>
-<body>
+<body class="px-5 py-3 lg:px-[200px] lg:py-[30px] bg-[#f7fafc]">
+
+    <!-- dashboard -->
+    <header class="py-[10px]">
+        <h1 class="font-bold text-3xl text-[#002C5C] mb-5">Job Application Tracker</h1>
+
+        <div class="grid lg:grid-cols-3 gap-4">
+            <div
+                class="card w-full bg-base-100 card-xs shadow-sm rounded-lg border-slate-100 hover:shadow-xl active:shadow-xl transition group cursor-pointer">
+                <div class="card-body p-5 ">
+                    <h2 class="card-title">Total</h2>
+                    <h1 id="dashboard-total-count" class="font-bold text-xl text-[#002C5C]">0</h1>
+                </div>
+            </div>
+
+            <div
+                class="card w-full bg-base-100 card-xs shadow-sm rounded-lg border-slate-100 hover:shadow-xl active:shadow-xl transition group cursor-pointer">
+                <div class="card-body p-5">
+                    <h2 class="card-title">Interview</h2>
+                    <h1 id="dashboard-interview-count" class="font-bold text-xl text-[#10B981]">0</h1>
+                </div>
+            </div>
+
+            <div
+                class="card w-full bg-base-100 card-xs shadow-sm rounded-lg border-slate-100 hover:shadow-xl active:shadow-xl transition group cursor-pointer">
+                <div class="card-body p-5">
+                    <h2 class="card-title">Rejected</h2>
+                    <h1 id="dashboard-rejected-count" class="font-bold text-xl text-[#EF4444]">0</h1>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
     
 </body>
 </html>
