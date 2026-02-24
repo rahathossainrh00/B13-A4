@@ -77,7 +77,126 @@
             <button onclick="filterByStatus('reject' , this)" id="filter-rejected-btn"
                 class=" filter-button btn btn-soft w-24 text-[#64748B]">Rejected</button>
         </div>
-        
+
+    <!-- no jobs available card -->
+        <section id="empty-state-section" class="">
+
+            <div
+                class="card bg-base-100 w-full h-[400px] shadow-sm rounded-lg border-slate-100 hover:shadow-lg active:shadow-xl transition group cursor-pointer">
+                <div class="card-body flex justify-center ">
+                    <div class="flex flex-col items-center ">
+                        <img src="./asset/jobs.png" alt="">
+                        <h2 class="card-title font-bold text-2xl text-[#002C5C] pt-5">No jobs available</h2>
+                        <p class=" text-base text-[#64748B]">Check back soon for new job opportunities</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+     <!--all  job card -->
+        <section id="job-cards-section" class="hidden">
+
+            <div class="grid grid-cols-1 gap-4">
+
+                <!-- card 1 -->
+                <div data-job-status="not-applied"
+                    class="job-listing-card card bg-base-100 w-full shadow-sm rounded-lg border-slate-100 hover:shadow-lg active:shadow-xl transition group cursor-pointer">
+                    <div class="card-body">
+                        <div class="flex justify-between items-center">
+                            <h2 class="card-title text-xl">Mobile First Corp</h2>
+                            <button onclick="removeJobCard(this)" class="text-[#64748B]"><i
+                                    class="fa-regular fa-trash-can"></i></button>
+                        </div>
+
+                        <p class=" text-base text-[#64748B]">React Native Developer</p>
+                        <p class="text-sm text-[#64748B] py-3">Remote • Full-time • $130,000 - $175,000</p>
+                        <button class="job-status-badge btn bg-[#EEF4FF] w-32 text-[#64748B]">Not Applied</button>
+                        <p>Build cross-platform mobile applications using React Native. Work on products used by
+                            millions of users worldwide.</p>
+                        <div class="card-actions pt-3">
+                            <button onclick="updateJobStatus(this, 'interview')"
+                                class="btn btn-outline text-[#10B981]">INTERVIEW</button>
+                            <button onclick="updateJobStatus(this, 'reject')"
+                                class="btn btn-outline text-[#EF4444] ">REJECTED</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 2 -->
+                <div data-job-status="not-applied"
+                    class=" job-listing-card card bg-base-100 w-full shadow-sm rounded-lg border-slate-100 hover:shadow-lg active:shadow-xl transition group cursor-pointer ">
+                    <div class="card-body">
+                        <div class="flex justify-between items-center">
+                            <h2 class="card-title text-xl">WebFlow Agency</h2>
+                            <button onclick="removeJobCard(this)" class="text-[#64748B]"><i
+                                    class="fa-regular fa-trash-can"></i></button>
+                        </div>
+
+                        <p class=" text-base text-[#64748B]">Web Designer & Developer</p>
+                        <p class="text-sm text-[#64748B] py-3">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                        <button class="job-status-badge btn bg-[#EEF4FF] w-32 text-[#64748B]">Not Applied</button>
+                        <p>Create stunning web experiences for high-profile clients. Must have portfolio and experience
+                            with modern web design trends.</p>
+                        <div class="card-actions pt-3">
+                            <button onclick="updateJobStatus(this, 'interview')"
+                                class="btn btn-outline text-[#10B981]">INTERVIEW</button>
+                            <button onclick="updateJobStatus(this, 'reject')"
+                                class="btn btn-outline text-[#EF4444] ">REJECTED</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 3 -->
+                <div data-job-status="not-applied"
+                    class="job-listing-card card bg-base-100 w-full shadow-sm rounded-lg border-slate-100 hover:shadow-lg active:shadow-xl transition group cursor-pointer ">
+                    <div class="card-body">
+                        <div class="flex justify-between items-center">
+                            <h2 class="card-title text-xl">DataViz Solutions</h2>
+                            <button onclick="removeJobCard(this)" class="text-[#64748B]"><i
+                                    class="fa-regular fa-trash-can"></i></button>
+                        </div>
+
+                        <p class=" text-base text-[#64748B]">Data Visualization Specialist</p>
+                        <p class="text-sm text-[#64748B] py-3">Boston, MA • Full-time • $125,000 - $165,000</p>
+                        <button class="job-status-badge btn bg-[#EEF4FF] w-32 text-[#64748B]">Not Applied</button>
+                        <p>Transform complex data into compelling visualizations. Required skills: D3.js, React, and
+                            strong analytical thinking.</p>
+                        <div class="card-actions pt-3">
+                            <button onclick="updateJobStatus(this, 'interview')"
+                                class="btn btn-outline text-[#10B981]">INTERVIEW</button>
+                            <button onclick="updateJobStatus(this, 'reject')"
+                                class="btn btn-outline text-[#EF4444] ">REJECTED</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 4 -->
+                <div data-job-status="not-applied"
+                    class="job-listing-card card bg-base-100 w-full shadow-sm rounded-lg border-slate-100 hover:shadow-lg active:shadow-xl transition group cursor-pointer">
+                    <div class="card-body">
+                        <div class="flex justify-between items-center">
+                            <h2 class="card-title text-xl">CloudFirst Inc</h2>
+                            <button onclick="removeJobCard(this)" class="text-[#64748B]"><i
+                                    class="fa-regular fa-trash-can"></i></button>
+                        </div>
+
+                        <p class=" text-base text-[#64748B]">Backend Developer</p>
+                        <p class="text-sm text-[#64748B] py-3">Seattle, WA • Full-time • $140,000 - $190,000</p>
+                        <button class="job-status-badge btn bg-[#EEF4FF] w-32 text-[#64748B]">Not Applied</button>
+                        <p>Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps
+                            practices and cloud infrastructure.</p>
+                        <div class="card-actions pt-3">
+                            <button onclick="updateJobStatus(this, 'interview')"
+                                class="btn btn-outline text-[#10B981]">INTERVIEW</button>
+                            <button onclick="updateJobStatus(this, 'reject')"
+                                class="btn btn-outline text-[#EF4444] ">REJECTED</button>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
     </section>
     
 </body>
