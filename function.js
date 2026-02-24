@@ -13,3 +13,44 @@ function filterByStatus(status, clickedButton) {
 
     toggleCardVisibility(status);
 }
+
+function toggleCardVisibility(status) {
+    var jobCardsSection = document.getElementById("job-cards-section");
+    var emptyStateSection = document.getElementById("empty-state-section");
+    var allJobCards = document.querySelectorAll(".job-listing-card");
+    var visibleCount = 0;
+
+    for (var i = 0; i < allJobCards.length; i++) {
+        var currentCard = allJobCards[i];
+        var currentCardStatus = currentCard.getAttribute("data-job-status");
+
+        if (status === "all") {
+            currentCard.style.display = "block";
+            visibleCount = visibleCount + 1;
+        } else if (currentCardStatus === status) {
+            currentCard.style.display = "block";
+            visibleCount = visibleCount + 1;
+        } else {
+            currentCard.style.display = "none";
+        }
+    }
+
+    if (visibleCount > 0) {
+        jobCardsSection.classList.remove("hidden");
+        emptyStateSection.classList.add("hidden");
+    } else {
+        jobCardsSection.classList.add("hidden");
+        emptyStateSection.classList.remove("hidden");
+    }
+
+    refreshDashboardCounts();
+
+    var jobListCounter = document.getElementById("job-list-count");
+    var totalJobs = allJobCards.length;
+
+    if (status === "all") {
+        jobListCounter.innerText = totalJobs + " jobs";
+    } else {
+        jobListCounter.innerText = visibleCount + " of " + totalJobs + " jobs";
+    }
+}
