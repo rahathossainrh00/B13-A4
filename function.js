@@ -90,3 +90,28 @@ function updateJobStatus(button, newStatus) {
         }
     }
 }
+
+
+function refreshDashboardCounts() {
+    var allJobCards = document.querySelectorAll(".job-listing-card");
+    var totalCount = allJobCards.length;
+    var interviewCount = 0;
+    var rejectedCount = 0;
+
+    for (var i = 0; i < allJobCards.length; i++) {
+        var currentCard = allJobCards[i];
+        var currentStatus = currentCard.getAttribute("data-job-status");
+
+        if (currentStatus === "interview") {
+            interviewCount = interviewCount + 1;
+        }
+
+        if (currentStatus === "reject") {
+            rejectedCount = rejectedCount + 1;
+        }
+    }
+
+    document.getElementById("dashboard-total-count").innerText = totalCount;
+    document.getElementById("dashboard-interview-count").innerText = interviewCount;
+    document.getElementById("dashboard-rejected-count").innerText = rejectedCount;
+}
