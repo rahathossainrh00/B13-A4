@@ -1,3 +1,4 @@
+// highlights the clicked filter button and shows or hides cards------
 function filterByStatus(status, clickedButton) {
     var allFilterButtons = document.querySelectorAll(".filter-button");
 
@@ -14,6 +15,8 @@ function filterByStatus(status, clickedButton) {
     toggleCardVisibility(status);
 }
 
+
+// shows or hides job cards based on the selected filter------
 function toggleCardVisibility(status) {
     var jobCardsSection = document.getElementById("job-cards-section");
     var emptyStateSection = document.getElementById("empty-state-section");
@@ -56,6 +59,7 @@ function toggleCardVisibility(status) {
 }
 
 
+// changes a job card's status and updates the badge------
 function updateJobStatus(button, newStatus) {
     var jobCard = button.closest(".job-listing-card");
     jobCard.setAttribute("data-job-status", newStatus);
@@ -92,6 +96,7 @@ function updateJobStatus(button, newStatus) {
 }
 
 
+// counts total,interview and rejected cards and updates the dashboard------
 function refreshDashboardCounts() {
     var allJobCards = document.querySelectorAll(".job-listing-card");
     var totalCount = allJobCards.length;
@@ -115,3 +120,36 @@ function refreshDashboardCounts() {
     document.getElementById("dashboard-interview-count").innerText = interviewCount;
     document.getElementById("dashboard-rejected-count").innerText = rejectedCount;
 }
+
+
+// Removes a job card and reapplies the active filter------
+function removeJobCard(button) {
+    var jobCard = button.closest(".job-listing-card");
+    jobCard.remove();
+
+    refreshDashboardCounts();
+
+    // reapplying active filter if one is selected------
+    var activeFilterButton = document.querySelector(".filter-button.bg-\\[\\#3B82F6\\]");
+
+    if (activeFilterButton) {
+        var activeFilterName = activeFilterButton.id;
+
+        if (activeFilterName === "filter-all-btn") {
+            toggleCardVisibility("all");
+        }
+        if (activeFilterName === "filter-interview-btn") {
+            toggleCardVisibility("interview");
+        }
+        if (activeFilterName === "filter-rejected-btn") {
+            toggleCardVisibility("reject");
+        }
+    }
+}
+
+
+//show all jobs by default------
+window.onload = function () {
+    var allButton = document.getElementById("filter-all-btn");
+    filterByStatus("all", allButton);
+};
